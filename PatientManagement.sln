@@ -1,0 +1,61 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35527.113
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PatientManagement", "PatientManagement", "{77AF5688-E9E6-4B01-8ACF-6A4043075C67}"
+	ProjectSection(SolutionItems) = preProject
+		.dockerignore = .dockerignore
+		Dockerfile = Dockerfile
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{5C2B7523-5315-4AA2-84D1-BEFDF65E80F9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PatientManagement.Api", "PatientManagement.Api\PatientManagement.Api.csproj", "{351532A1-2666-4015-903B-254A76241642}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PatientManagement.Application", "PatientManagement.Application\PatientManagement.Application.csproj", "{7794E1C8-559F-410E-9F8B-5D8AE17643F4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PatientManagement.Domain", "PatientManagement.Domain\PatientManagement.Domain.csproj", "{4D6F64AB-30D7-4697-B889-E25FF2D23D13}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PatientManagement.Infrastructure", "PatientManagement.Infrastructure\PatientManagement.Infrastructure.csproj", "{7BCD4E2B-F8A6-4275-B838-444908BFFF5D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PatientManagement.Test", "PatientManagement.Test\PatientManagement.Test.csproj", "{B1417FAA-C460-4708-9DED-A2F93C936A6E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{351532A1-2666-4015-903B-254A76241642}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{351532A1-2666-4015-903B-254A76241642}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{351532A1-2666-4015-903B-254A76241642}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{351532A1-2666-4015-903B-254A76241642}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7794E1C8-559F-410E-9F8B-5D8AE17643F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7794E1C8-559F-410E-9F8B-5D8AE17643F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7794E1C8-559F-410E-9F8B-5D8AE17643F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7794E1C8-559F-410E-9F8B-5D8AE17643F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D6F64AB-30D7-4697-B889-E25FF2D23D13}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D6F64AB-30D7-4697-B889-E25FF2D23D13}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D6F64AB-30D7-4697-B889-E25FF2D23D13}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D6F64AB-30D7-4697-B889-E25FF2D23D13}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7BCD4E2B-F8A6-4275-B838-444908BFFF5D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7BCD4E2B-F8A6-4275-B838-444908BFFF5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7BCD4E2B-F8A6-4275-B838-444908BFFF5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7BCD4E2B-F8A6-4275-B838-444908BFFF5D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1417FAA-C460-4708-9DED-A2F93C936A6E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1417FAA-C460-4708-9DED-A2F93C936A6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1417FAA-C460-4708-9DED-A2F93C936A6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1417FAA-C460-4708-9DED-A2F93C936A6E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{351532A1-2666-4015-903B-254A76241642} = {77AF5688-E9E6-4B01-8ACF-6A4043075C67}
+		{7794E1C8-559F-410E-9F8B-5D8AE17643F4} = {77AF5688-E9E6-4B01-8ACF-6A4043075C67}
+		{4D6F64AB-30D7-4697-B889-E25FF2D23D13} = {77AF5688-E9E6-4B01-8ACF-6A4043075C67}
+		{7BCD4E2B-F8A6-4275-B838-444908BFFF5D} = {77AF5688-E9E6-4B01-8ACF-6A4043075C67}
+		{B1417FAA-C460-4708-9DED-A2F93C936A6E} = {5C2B7523-5315-4AA2-84D1-BEFDF65E80F9}
+	EndGlobalSection
+EndGlobal
