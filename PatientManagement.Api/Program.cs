@@ -19,8 +19,10 @@ builder.Services.AddScoped<IPatientRepository, PatientRepository>();
 builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 
 // Database
+
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlite("Data Source=patientmanagement.db"));
+    options.UseSqlite("Data Source=patientmanagement.db")
+           .EnableSensitiveDataLogging(), ServiceLifetime.Scoped);// Shows SQL parameters
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
@@ -46,7 +48,7 @@ app.UseMiddleware<ErrorHandlingMiddleware>();
     app.UseSwaggerUI();
 
 
-app.UseHttpsRedirection();
+//app.UseHttpsRedirection();
 app.UseAuthorization();
 app.MapControllers();
 app.Run();
