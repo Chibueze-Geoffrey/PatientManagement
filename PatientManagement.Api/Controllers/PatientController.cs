@@ -1,65 +1,80 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using PatientManagement.Application.Dtos.PatientDtos;
-using PatientManagement.Application.Dtos.PatientDtos.Response;
 using PatientManagement.Application.Interface;
-using PatientManagement.Application.Services;
-using System.Collections.Generic;
-using System.Threading.Tasks;
+using PatientManagement.Common.Dtos.PatientDtos;
+using PatientManagement.Common.Dtos.PatientDtos.Request;
+using PatientManagement.Common.Dtos.PatientDtos.Response;
+using PatientManagement.Common.Dtos.Response;
 
 namespace PatientManagement.Api.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class PatientController : ControllerBase
+    [ProducesResponseType(typeof(ExecutionResult<>), 400)]
+
+    public class PatientController : BaseController
     {
         private readonly IPatientService _patientService;
+        private readonly ILogService _LogService;
 
-        public PatientController(IPatientService patientService)
+        public PatientController(IPatientService patientService, ILogService LogService)
         {
             _patientService = patientService;
+            _LogService = LogService;
         }
 
-        // Create Patient - Returns Response with ID
+        [ProducesResponseType(typeof(ExecutionResult<PatientResponse>), 200)]
         [HttpPost]
-        public async Task<ActionResult<PatientResponse>> CreatePatient([FromBody] PatientDto patientDto)
+        public async Task<IActionResult> CreatePatient([FromBody] PatientDto patientDto)
         {
-            var patient = await _patientService.CreatePatientAsync(patientDto);
-            return CreatedAtAction(nameof(GetPatient), new { id = patient.Id }, patient);
+            string MethodName = "CreatePatient";
+            var startTime = DateTime.Now;
+            IActionResult result = CustomResponse(await _patientService.CreatePatientAsync(patientDto).ConfigureAwait(false));
+            _LogService.LogTypeResponse(patientDto, result, MethodName, _LogService.ReturnTimeSpent(startTime));
+            return result;
         }
 
-        // Get Patient by ID - Returns Response with ID
+        [ProducesResponseType(typeof(ExecutionResult<PatientResponse>), 200)]
         [HttpGet("{id}")]
-        public async Task<ActionResult<PatientResponse>> GetPatient(int id)
+        public async Task<IActionResult> GetPatient(int id)
         {
-            var patient = await _patientService.GetPatientByIdAsync(id);
-            if (patient == null) return NotFound();
-            return Ok(patient);
+            string MethodName = "GetPatient";
+            var startTime = DateTime.Now;
+            IActionResult result = CustomResponse(await _patientService.GetPatientByIdAsync(id).ConfigureAwait(false));
+            _LogService.LogTypeResponse(id, result, MethodName, _LogService.ReturnTimeSpent(startTime));
+            return result;
         }
 
-        // Get All Patients - Returns List of Patients with IDs
+        [ProducesResponseType(typeof(ExecutionResult<IEnumerable<PatientResponse>>), 200)]
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<PatientResponse>>> GetAllPatients()
+        public async Task<IActionResult> GetAllPatients()
         {
-            var patients = await _patientService.GetAllPatientsAsync();
-            return Ok(patients);
+            string MethodName = "GetAllPatients";
+            var startTime = DateTime.Now;
+            IActionResult result = CustomResponse(await _patientService.GetAllPatientsAsync().ConfigureAwait(false));
+            _LogService.LogTypeResponse("", result, MethodName, _LogService.ReturnTimeSpent(startTime));
+            return result; 
         }
 
-        // Update Patient - Accepts Request DTO, Returns Response DTO
+        [ProducesResponseType(typeof(ExecutionResult<PatientResponse>), 200)]
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdatePatient(int id, [FromBody] PatientDto patientDto)
+        public async Task<IActionResult> UpdatePatient(int id, [FromBody] PatientUpdateDto patientDto)
         {
-            var patient = await _patientService.UpdatePatientAsync(id, patientDto);
-            if (patient == null) return NotFound();
-            return Ok(patient);
+            string MethodName = "UpdatePatient";
+            var startTime = DateTime.Now;
+            IActionResult result = CustomResponse(await _patientService.UpdatePatientAsync(id, patientDto).ConfigureAwait(false));
+            _LogService.LogTypeResponse(new { id, patientDto }, result, MethodName, _LogService.ReturnTimeSpent(startTime));
+            return result;
         }
 
-        // Soft Delete Patient
+        [ProducesResponseType(typeof(ExecutionResult<bool>), 200)]
         [HttpDelete("{id}")]
         public async Task<IActionResult> SoftDeletePatient(int id)
         {
-            var success = await _patientService.DeletePatientAsync(id);
-            if (!success) return NotFound();
-            return NoContent();
+            string MethodName = "SoftDeletePatient";
+            var startTime = DateTime.Now;
+            IActionResult result = CustomResponse(await _patientService.DeletePatientAsync(id).ConfigureAwait(false));
+            _LogService.LogTypeResponse(id, result, MethodName, _LogService.ReturnTimeSpent(startTime));
+            return result;
         }
     }
 }

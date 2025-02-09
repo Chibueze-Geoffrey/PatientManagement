@@ -9,6 +9,8 @@ namespace PatientManagement.Infrastructure.Interface
     public interface IUnitOfWork
     {
         IPatientRepository PatientRepository { get; }
+
+       
         Task CommitAsync();
     }
 }

@@ -1,12 +1,8 @@
 ﻿using AutoMapper;
-using PatientManagement.Application.Dtos.PatientDtos;
-using PatientManagement.Application.Dtos.PatientDtos.Response;
+using PatientManagement.Common.Dtos.PatientDtos;
+using PatientManagement.Common.Dtos.PatientDtos.Request;
+using PatientManagement.Common.Dtos.PatientDtos.Response;
 using PatientManagement.Domain.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PatientManagement.Application.Utilities.Mapping
 {
@@ -14,8 +10,11 @@ namespace PatientManagement.Application.Utilities.Mapping
     {
         public AutoMapperProfile()
         {
-            CreateMap<PatientDto, Patient>(); // Request DTO → Entity (No ID)
-            CreateMap<Patient, PatientResponse>();
+            CreateMap<PatientDto, Patient>().ReverseMap();
+            CreateMap<Patient, PatientResponse>().ReverseMap();
+            CreateMap<Patient, PatientUpdateResponseDto>().ReverseMap();
+            CreateMap<PatientUpdateDto, Patient>().ReverseMap();
+
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using PatientManagement.Infrastructure.Data;
 using PatientManagement.Infrastructure.Interface;
+using System;
 using System.Threading.Tasks;
 
 namespace PatientManagement.Infrastructure.Implementations
@@ -12,10 +13,23 @@ namespace PatientManagement.Infrastructure.Implementations
 
         public UnitOfWork(ApplicationDbContext context, IPatientRepository patientRepository)
         {
-            _context = context;
-            PatientRepository = patientRepository;
+            _context = context ?? throw new ArgumentNullException(nameof(context));
+            PatientRepository = patientRepository ?? throw new ArgumentNullException(nameof(patientRepository));
         }
 
-        public async Task CommitAsync() => await _context.SaveChangesAsync();
+        public async Task CommitAsync()
+        {
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch
+            {
+                throw;
+            }
+        }
+       
     }
 }
+
+

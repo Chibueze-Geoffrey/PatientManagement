@@ -1,19 +1,17 @@
-﻿using PatientManagement.Common.Enums;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PatientManagement.Domain.Models
+namespace PatientManagement.Common.Dtos.PatientDtos.Response
 {
-    public class Patient
+    public class PatientResponse
     {
         public int Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public int Age { get; set; }
-        public PatientStatus Status { get; set; }
-
+        public string Status { get; set; }
     }
 }

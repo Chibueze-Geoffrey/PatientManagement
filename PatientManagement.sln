@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PatientManagement.Infrastru
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PatientManagement.Test", "PatientManagement.Test\PatientManagement.Test.csproj", "{B1417FAA-C460-4708-9DED-A2F93C936A6E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PatientManagement.Common", "PatientManagement.Common\PatientManagement.Common.csproj", "{13D893FB-F9DB-4BBC-AE2F-C678119987AD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,6 +49,10 @@ Global
 		{B1417FAA-C460-4708-9DED-A2F93C936A6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B1417FAA-C460-4708-9DED-A2F93C936A6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B1417FAA-C460-4708-9DED-A2F93C936A6E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13D893FB-F9DB-4BBC-AE2F-C678119987AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13D893FB-F9DB-4BBC-AE2F-C678119987AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13D893FB-F9DB-4BBC-AE2F-C678119987AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13D893FB-F9DB-4BBC-AE2F-C678119987AD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -57,5 +63,6 @@ Global
 		{4D6F64AB-30D7-4697-B889-E25FF2D23D13} = {77AF5688-E9E6-4B01-8ACF-6A4043075C67}
 		{7BCD4E2B-F8A6-4275-B838-444908BFFF5D} = {77AF5688-E9E6-4B01-8ACF-6A4043075C67}
 		{B1417FAA-C460-4708-9DED-A2F93C936A6E} = {5C2B7523-5315-4AA2-84D1-BEFDF65E80F9}
+		{13D893FB-F9DB-4BBC-AE2F-C678119987AD} = {77AF5688-E9E6-4B01-8ACF-6A4043075C67}
 	EndGlobalSection
 EndGlobal

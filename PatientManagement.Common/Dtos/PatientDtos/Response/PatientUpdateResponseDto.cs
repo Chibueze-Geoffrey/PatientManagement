@@ -4,12 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PatientManagement.Application.Dtos.PatientDtos.Response
+namespace PatientManagement.Common.Dtos.PatientDtos.Response
 {
-    public class PatientResponse
+    public class PatientUpdateResponseDto
     {
         public int Id { get; set; }
-        public string Name { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
         public int Age { get; set; }
         public string Status { get; set; }
     }

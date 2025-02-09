@@ -8,6 +8,7 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /PatientManagement
 COPY ["PatientManagement.Api/PatientManagement.Api.csproj", "PatientManagement.Api/"]
 COPY ["PatientManagement.Domain/PatientManagement.Domain.csproj", "PatientManagement.Domain/"]
+COPY ["PatientManagement.Common/PatientManagement.Common.csproj", "PatientManagement.Common/"]
 COPY ["PatientManagement.Application/PatientManagement.Application.csproj", "PatientManagement.Application/"]
 COPY ["PatientManagement.Infrastructure/PatientManagement.Infrastructure.csproj", "PatientManagement.Infrastructure/"]
 RUN dotnet restore "PatientManagement.Api/PatientManagement.Api.csproj"

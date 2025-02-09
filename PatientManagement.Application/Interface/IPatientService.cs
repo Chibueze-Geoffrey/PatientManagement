@@ -1,20 +1,17 @@
-﻿using PatientManagement.Application.Dtos.PatientDtos;
-using PatientManagement.Application.Dtos.PatientDtos.Response;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using PatientManagement.Common.Dtos.PatientDtos;
+using PatientManagement.Common.Dtos.PatientDtos.Request;
+using PatientManagement.Common.Dtos.PatientDtos.Response;
+using PatientManagement.Common.Dtos.Response;
 
 namespace PatientManagement.Application.Interface
 {
     public interface IPatientService
     {
 
-        Task<PatientResponse> CreatePatientAsync(PatientDto patientDto);
-        Task<PatientResponse> GetPatientByIdAsync(int id);
-        Task<IEnumerable<PatientResponse>> GetAllPatientsAsync();
-        Task<PatientResponse> UpdatePatientAsync(int id, PatientDto patientDto);
-        Task<bool> DeletePatientAsync(int id);
+        Task<ExecutionResult<PatientResponse>> CreatePatientAsync(PatientDto patientDto);
+        Task<ExecutionResult<PatientResponse>> GetPatientByIdAsync(int id);
+        Task<ExecutionResult<IEnumerable<PatientResponse>>> GetAllPatientsAsync();
+        Task <ExecutionResult<PatientUpdateResponseDto>> UpdatePatientAsync(int id, PatientUpdateDto patientDto);
+        Task<ExecutionResult<bool>> DeletePatientAsync(int id);
     }
 }
