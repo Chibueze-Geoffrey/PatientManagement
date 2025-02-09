@@ -8,6 +8,7 @@ namespace PatientManagement.Infrastructure.Interface
     {
         Task<IEnumerable<Patient>> GetAllActivePatientsAsync();
         Task SoftDeleteAsync(int id);
+        Task<Patient> GetPatientIncludingDeletedAsync(int id);
         Task RestorePatientAsync(int id);
     }
 }

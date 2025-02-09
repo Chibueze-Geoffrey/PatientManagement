@@ -56,7 +56,7 @@ namespace PatientManagement.Api.Controllers
         }
 
         [ProducesResponseType(typeof(ExecutionResult<PatientResponse>), 200)]
-        [HttpPut("{id}")]
+        [HttpPut("update/{id}")]
         public async Task<IActionResult> UpdatePatient(int id, [FromBody] PatientUpdateDto patientDto)
         {
             string MethodName = "UpdatePatient";
@@ -66,8 +66,7 @@ namespace PatientManagement.Api.Controllers
             return result;
         }
 
-        [ProducesResponseType(typeof(ExecutionResult<bool>), 200)]
-        [HttpDelete("{id}")]
+        [HttpDelete("SoftDeletePatient/{id}")]
         public async Task<IActionResult> SoftDeletePatient(int id)
         {
             string MethodName = "SoftDeletePatient";
@@ -76,5 +75,25 @@ namespace PatientManagement.Api.Controllers
             _LogService.LogTypeResponse(id, result, MethodName, _LogService.ReturnTimeSpent(startTime));
             return result;
         }
+
+        [HttpPut("restore/{id}")]
+        public async Task<IActionResult> RestorePatient(int id)
+        {
+            string MethodName = "RestorePatient";
+            var startTime = DateTime.Now;
+            IActionResult result = CustomResponse(await _patientService.RestorePatientAsync(id).ConfigureAwait(false));
+            _LogService.LogTypeResponse(id, result, MethodName, _LogService.ReturnTimeSpent(startTime));
+            return result;
+        }
+        [HttpDelete("permanent/{id}")]
+        public async Task<IActionResult> PermanentlyDeletePatient(int id)
+        {
+            string MethodName = "PermanentlyDeletePatient";
+            var startTime = DateTime.Now;
+            IActionResult result = CustomResponse(await _patientService.PermanentlyDeletePatientAsync(id).ConfigureAwait(false));
+            _LogService.LogTypeResponse(id, result, MethodName, _LogService.ReturnTimeSpent(startTime));
+            return result;
+        }
+
     }
 }

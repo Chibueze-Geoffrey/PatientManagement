@@ -49,13 +49,7 @@ namespace PatientManagement.Common.Dtos.Response
 
                 return response;
             }
-
-            public static ExecutionResult<T> Processing(string errorMessage)
-            {
-                ExecutionResult<T> response = new ExecutionResult<T> { Response = ResponseCode.Processing, Message = errorMessage };
-
-                return response;
-            }
+       
         }
 
         public enum ResponseCode
@@ -63,7 +57,7 @@ namespace PatientManagement.Common.Dtos.Response
             [Description("Request was successful")]
             Ok = 0,
 
-            [Description("Invalid details supplied")]
+            [Description("Invalid Data supplied")]
             ValidationError = 1,
 
             [Description("No record found")]
@@ -74,96 +68,11 @@ namespace PatientManagement.Common.Dtos.Response
 
             [Description("Authentication failed. Please try again with the right credentials")]
             AuthorizationError = 4,
-
-            [Description("You account balance is insufficient for this transaction")]
-            InsufficientFund,
-
-            [Description("Daily Limit exceeded")]
-            DailyLimitExceeded,
-
-            [Description("Duplicate transaction. Please try again in 5 minutes")]
-            RepeatedTransaction,
-
-            [Description("Invalid account details. Please try again")]
-            InvalidAccountNumber,
-
-            [Description("Invalid image validation. Please try again")]
-            InvalidFaceValue,
-
-            [Description("Please enter the OTP sent to you")]
-            OTPRequired,
-
-            [Description("Invalid OTP. Please enter the four digits code sent to you")]
-            InvalidOTP,
-
-            [Description("Incorrect PIN. Please try again")]
-            InvalidPIN,
-
-            [Description("Invalid card details. Please try again")]
-            InvalidCardValue,
-
-            [Description("Invalid hardware token. Please try again")]
-            InvalidHardTokenValue,
-
-            [Description("Invalid Biometric, please try again")]
-            InvalidFingerPrintValue,
-
-            [Description("Your PIN is locked, click on reset Transaction PIN to unlock.")]
-            PinLocked,
-
-            [Description("Name enquiry failed. Please try again")]
-            InvalidNameEnquiry,
-
-            [Description("Payment has been previously processed")]
-            DuplicateRecord,
-
-            [Description("Platform limit exceeded")]
-            ChannelLimitExceeded,
-
-            [Description("You have only # left out of your daily platform limit.Please try a transaction that does not exceed that amount.")]
-            CustomerLimitExceeded,
-
-            [Description("Platform limit exceeded")]
-            NoChannelConfiguration,
-
-            [Description("Platform limit exceeded")]
-            MissingChallenge,
-
-            [Description("Duplicate Account details")]
-            DuplicateAccountDetails,
-
-            [Description("Transaction is in progress")]
-            Processing,
-
-            [Description("Cross currency account transaction is not permitted")]
-            CrossCurrency,
-
-            [Description("Re-Initiate Transfer")]
-            ReInitiateTransfer,
-
-            [Description("We cannot confirm the status of the transaction at this time. Please check with the beneficiary before you try again")]
-            Dispute,
-
-            [Description("Transaction requires futher validation")]
-            AdditionalValidationRequired,
-
-            [Description("2FA limit exceeded")]
-            ChallengeLimitExceeded,
-
-            [Description("Transaction Initiated")]
-            ApprovalInitiated,
-
+           
             [Description("Processing Error")]
             ProcessingError,
 
-            [Description("Expired payment session")]
-            ExpiredPaymentSession,
-
-            [Description("Settlement created successfully")]
-            SettlementCreated,
-
-            [Description("Profile blocked")]
-            ProfileBlockedFirstTransaction
+           
         }
 
         public class PagedList<T> where T : class

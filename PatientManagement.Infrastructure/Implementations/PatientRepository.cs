@@ -36,17 +36,24 @@ namespace PatientManagement.Infrastructure.Implementations
             {
                 patient.Status = PatientStatus.Deleted;
                 _context.Patients.Update(patient);
+                await _context.SaveChangesAsync();
             }
+        }
+        public async Task<Patient> GetPatientIncludingDeletedAsync(int id)
+        {
+            return await _context.Patients.FindAsync(id);
         }
 
         public async Task RestorePatientAsync(int id)
         {
-            var patient = await _context.Patients.FindAsync(id);
+            var patient = await GetPatientIncludingDeletedAsync(id);
             if (patient != null && patient.Status == PatientStatus.Deleted)
             {
                 patient.Status = PatientStatus.Active;
                 _context.Patients.Update(patient);
+                await _context.SaveChangesAsync();
             }
         }
+
     }
 }

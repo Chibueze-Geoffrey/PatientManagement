@@ -13,5 +13,7 @@ namespace PatientManagement.Application.Interface
         Task<ExecutionResult<IEnumerable<PatientResponse>>> GetAllPatientsAsync();
         Task <ExecutionResult<PatientUpdateResponseDto>> UpdatePatientAsync(int id, PatientUpdateDto patientDto);
         Task<ExecutionResult<bool>> DeletePatientAsync(int id);
+        Task<ExecutionResult<bool>> RestorePatientAsync(int id);
+        Task<ExecutionResult<bool>> PermanentlyDeletePatientAsync(int id);
     }
 }
