@@ -100,8 +100,7 @@ This API allows soft deletion, restoration, and permanent deletion of patient re
 
 ### **1. Clone the Repository**
 ```sh
-git clone https://github.com/yourusername/PatientManagementAPI.git
-cd PatientManagementAPI
+git clone https://github.com/Chibueze-Geoffrey/PatientManagement.git
 ```
 
 ### **2. Install Dependencies**
