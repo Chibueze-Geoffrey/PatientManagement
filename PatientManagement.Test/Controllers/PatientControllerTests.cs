@@ -27,7 +27,7 @@ namespace PatientManagement.Test.Controllers
         public async Task CreatePatient_ShouldReturnCreatedResponse()
         {
             // Arrange
-            var patientDto = new PatientDto { FirstName = "John ", LastName = "Jery ", Age = 30, Status = PatientStatus.Active.ToString() };
+            var patientDto = new PatientDto { FirstName = "John ", LastName = "Jery ", Age = 30, Status = PatientStatus.Active };
             var patientResponse = new ExecutionResult<PatientResponse>
             {
                 Response = ResponseCode.Ok,

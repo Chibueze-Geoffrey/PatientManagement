@@ -10,11 +10,17 @@ namespace PatientManagement.Application.Utilities.Mapping
     {
         public AutoMapperProfile()
         {
+            // Map between PatientDto and Patient
             CreateMap<PatientDto, Patient>().ReverseMap();
-            CreateMap<Patient, PatientResponse>().ReverseMap();
-            CreateMap<Patient, PatientUpdateResponseDto>().ReverseMap();
-            CreateMap<PatientUpdateDto, Patient>().ReverseMap();
 
+            // Map between Patient and PatientResponse
+            CreateMap<Patient, PatientResponse>().ReverseMap();
+
+            // Map between Patient and PatientUpdateResponseDto
+            CreateMap<Patient, PatientUpdateResponseDto>().ReverseMap();
+
+            // Map between PatientUpdateDto and Patient
+            CreateMap<PatientUpdateDto, Patient>().ReverseMap();
         }
     }
 }

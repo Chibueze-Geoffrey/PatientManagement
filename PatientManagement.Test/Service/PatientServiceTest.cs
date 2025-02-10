@@ -36,7 +36,7 @@ namespace PatientManagement.Test.Service
         public async Task CreatePatientAsync_ShouldReturnPatientResponse()
         {
             // Arrange
-            var patientDto = new PatientDto { FirstName = "John ", LastName = "Jery ", Age = 30, Status = PatientStatus.Active.ToString() };
+            var patientDto = new PatientDto { FirstName = "John ", LastName = "Jery ", Age = 30, Status = PatientStatus.Active };
             var patient = new Patient { Id = 1, FirstName = "John ", LastName = "Jery ", Age = 30, Status = PatientStatus.Active };
             var patientResponse = new PatientResponse { Id = 1, FirstName = "John ", LastName = "Jery ", Age = 30, Status = PatientStatus.Active.ToString() };
 
