@@ -24,9 +24,9 @@ This API allows soft deletion, restoration, and permanent deletion of patient re
 - **How?**  
   - **API Layer**: Handles HTTP requests & responses.
   - **Application Layer**: Contains business logic and DTOs.
-  - **Domain Layer**: Defines entities and enums.
+  - **Domain Layer**: Defines entities.
   - **Infrastructure Layer**: Handles database operations.
-  - **Common Layer**: Stores reusable extensions and utilities.
+  - **Common Layer**: Stores reusable extensions, Dtos.
 
 ### **2. Unit of Work & Generic Repository Pattern**
 - **Why?** To manage database transactions efficiently and keep the code DRY.
