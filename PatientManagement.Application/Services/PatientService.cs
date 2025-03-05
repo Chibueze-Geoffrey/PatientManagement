@@ -43,11 +43,7 @@ namespace PatientManagement.Application.Services
             {
                 _logger.LogWarning($"Validation error: {ex.Message}");
                 return ExecutionResult<PatientResponse>.Failed(ex.Message, ResponseCode.ValidationError);
-            }
-            catch(NullReferenceException nullEX)
-            {
-                _logger.LogError($"Null, {nullEX.Message}");
-            }
+            }       
             catch (Exception ex)
             {
                 _logger.LogError($"Error creating patient: {ex.Message}");

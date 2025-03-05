@@ -16,6 +16,8 @@ namespace PatientManagement.Api.Extensions
             builder.Host.UseSerilog((context, config) =>
             {
                 config.ReadFrom.Configuration(context.Configuration);
+                config.WriteTo.Console();
+
             });
         }
 

@@ -17,6 +17,12 @@ builder.Services.ConfigureServices();
 // Configure the database
 builder.Services.ConfigureDatabase(builder.Configuration);
 
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("UserOrAdminPolicy", policy =>
+        policy.RequireRole("User", "Admin"));
+});
+
 // Add controllers and Swagger
 builder.Services.ConfigureControllers();
 builder.Services.ConfigureSwagger();
@@ -52,6 +58,7 @@ else
 app.UseSwagger();
 app.UseSwaggerUI();
 
+app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
 app.Run();

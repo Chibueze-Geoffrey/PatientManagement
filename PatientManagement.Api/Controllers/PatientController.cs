@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using PatientManagement.Application.Interface;
 using PatientManagement.Common.Dtos.PatientDtos;
 using PatientManagement.Common.Dtos.PatientDtos.Request;
@@ -8,6 +9,7 @@ using PatientManagement.Common.Dtos.Response;
 namespace PatientManagement.Api.Controllers
 {
     [ApiController]
+    [Authorize(Policy = "UserOrAdminPolicy")]
     [Route("api/[controller]")]
     [ProducesResponseType(typeof(ExecutionResult<>), 400)]
 
@@ -45,9 +47,10 @@ namespace PatientManagement.Api.Controllers
         }
 
         [ProducesResponseType(typeof(ExecutionResult<IEnumerable<PatientResponse>>), 200)]
+        [ProducesResponseType(typeof(ExecutionResult<IEnumerable<PatientResponse>>), 400)]
         [HttpGet]
         public async Task<IActionResult> GetAllPatients()
-        {
+        { 
             string MethodName = "GetAllPatients";
             var startTime = DateTime.Now;
             IActionResult result = CustomResponse(await _patientService.GetAllPatientsAsync().ConfigureAwait(false));
