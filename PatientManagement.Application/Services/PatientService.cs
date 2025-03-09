@@ -77,15 +77,15 @@ namespace PatientManagement.Application.Services
         {
             try
             {
-                
+
                 var patients = await _unitOfWork.PatientRepository.GetAllActivePatientsAsync();
-                if(patients == null)
+                if (patients == null)
                 {
                     _logger.LogWarning($"Patient not found.");
                     return ExecutionResult < IEnumerable<PatientResponse>>.Failed($"Patient not found.", ResponseCode.NotFound);
                 }
-                _logger.LogInformation($"Retrieved {patients.Count()} patients.");
-                return ExecutionResult<IEnumerable<PatientResponse>>.Success(_mapper.Map<IEnumerable<PatientResponse>>(patients), " patients retrieved successfully.");
+                _logger.LogInformation($"Retrieving patients.");
+                return ExecutionResult<IEnumerable<PatientResponse>>.Success(_mapper.Map<IEnumerable<PatientResponse>>(patients)," patients retrieved successfully.");
             }
             catch (Exception ex)
             {
