@@ -17,7 +17,6 @@ namespace PatientManagement.Api.Extensions
             {
                 config.ReadFrom.Configuration(context.Configuration);
                 config.WriteTo.Console();
-
             });
         }
 

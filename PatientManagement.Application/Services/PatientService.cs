@@ -79,7 +79,7 @@ namespace PatientManagement.Application.Services
             {
 
                 var patients = await _unitOfWork.PatientRepository.GetAllActivePatientsAsync();
-                if (patients == null)
+                if (patients == null || !patients.Any())
                 {
                     _logger.LogWarning($"Patient not found.");
                     return ExecutionResult < IEnumerable<PatientResponse>>.Failed($"Patient not found.", ResponseCode.NotFound);
