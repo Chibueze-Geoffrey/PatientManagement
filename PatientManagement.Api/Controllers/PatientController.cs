@@ -9,7 +9,7 @@ using PatientManagement.Common.Dtos.Response;
 namespace PatientManagement.Api.Controllers
 {
     [ApiController]
-    [Authorize(Policy = "UserOrAdminPolicy")]
+   //Authorize(Policy = "UserOrAdminPolicy")]
     [Route("api/[controller]")]
     [ProducesResponseType(typeof(ExecutionResult<>), 400)]
 
