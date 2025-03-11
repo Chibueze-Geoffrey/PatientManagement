@@ -17,7 +17,7 @@ namespace PatientManagement.Api.Extensions
             {
                 config.ReadFrom.Configuration(context.Configuration);
                 config.WriteTo.Console();
-                config.WriteTo.Seq("http://localhost:5341/");
+                config.WriteTo.Seq("http://localhost:5341/");                           
             });
         }
 

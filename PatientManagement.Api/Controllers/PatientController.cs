@@ -25,7 +25,7 @@ namespace PatientManagement.Api.Controllers
         }
 
         [ProducesResponseType(typeof(ExecutionResult<PatientResponse>), 200)]
-        [HttpPost]
+        [HttpPost("CreatePatient")]
         public async Task<IActionResult> CreatePatient([FromBody] PatientDto patientDto)
         {
             string MethodName = "CreatePatient";
@@ -36,7 +36,7 @@ namespace PatientManagement.Api.Controllers
         }
 
         [ProducesResponseType(typeof(ExecutionResult<PatientResponse>), 200)]
-        [HttpGet("{id}")]
+        [HttpGet("GetPatient/{id}")]
         public async Task<IActionResult> GetPatient(int id)
         {
             string MethodName = "GetPatient";
@@ -48,7 +48,7 @@ namespace PatientManagement.Api.Controllers
 
         [ProducesResponseType(typeof(ExecutionResult<IEnumerable<PatientResponse>>), 200)]
         [ProducesResponseType(typeof(ExecutionResult<IEnumerable<PatientResponse>>), 400)]
-        [HttpGet]
+        [HttpGet("GetAllPatients")]
         public async Task<IActionResult> GetAllPatients()
         { 
             string MethodName = "GetAllPatients";
@@ -79,7 +79,7 @@ namespace PatientManagement.Api.Controllers
             return result;
         }
 
-        [HttpPut("restore/{id}")]
+        [HttpPut("restore_patient/{id}")]
         public async Task<IActionResult> RestorePatient(int id)
         {
             string MethodName = "RestorePatient";
@@ -88,7 +88,7 @@ namespace PatientManagement.Api.Controllers
             _LogService.LogTypeResponse(id, result, MethodName, _LogService.ReturnTimeSpent(startTime));
             return result;
         }
-        [HttpDelete("permanent/{id}")]
+        [HttpDelete("permanent_delete/{id}")]
         public async Task<IActionResult> PermanentlyDeletePatient(int id)
         {
             string MethodName = "PermanentlyDeletePatient";
